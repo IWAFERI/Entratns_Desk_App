@@ -43,15 +43,22 @@ namespace Abiturients_App
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
             Form1 f1 = new Form1();
             f1.Show();
-            this.Close();
+            
         }
 
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Abitur fa = new Abitur();
+            fa.Show();
         }
     }
 }

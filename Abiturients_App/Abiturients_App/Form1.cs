@@ -64,5 +64,10 @@ namespace Abiturients_App
         {
             Application.Exit();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

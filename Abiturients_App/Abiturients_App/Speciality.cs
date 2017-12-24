@@ -23,6 +23,7 @@ namespace Abiturients_App
         }
 
         MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;Initial Catalog='collegeenrollmentdatabase';username=root;password=41Elaset");
+        MySqlCommand command;
 
         private void Speciality_Load(object sender, EventArgs e)
         {
@@ -42,6 +43,50 @@ namespace Abiturients_App
 
         }
 
+        public void openConnection()
+        {
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+        }
+
+        public void closeConnection()
+        {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
+        }
+
+        public void executMyQuery(string query)
+        {
+            try
+            {
+                openConnection();
+                command = new MySqlCommand(query, connection);
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Запрос выполнен");
+                }
+                else
+                {
+                    MessageBox.Show("Запрос не выполнен");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+
+            {
+                closeConnection();
+            }
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -52,6 +97,12 @@ namespace Abiturients_App
         private void Speciality_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            string addQuery = "INSERT INTO speciality2(idSpeciality, nameOfSpeciality, budget, comerc) VALUES('"+materialSingleLineTextField1.Text+"','" + materialSingleLineTextField2.Text + "','" + materialSingleLineTextField3.Text + "','" + materialSingleLineTextField4.Text + "')";
+            executMyQuery(addQuery);
         }
     }
 }

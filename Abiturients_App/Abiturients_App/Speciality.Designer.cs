@@ -171,6 +171,7 @@
             this.materialRaisedButton1.TabIndex = 5;
             this.materialRaisedButton1.Text = "Добавить";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
             // materialRaisedButton2
             // 
@@ -242,6 +243,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Speciality";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Speciality";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Speciality_FormClosing);
             this.Load += new System.EventHandler(this.Speciality_Load);
