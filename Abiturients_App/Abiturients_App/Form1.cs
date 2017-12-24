@@ -62,7 +62,7 @@ namespace Abiturients_App
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
     }
 }

@@ -51,7 +51,7 @@ namespace Abiturients_App
 
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            Application.Exit();
         }
     }
 }

@@ -48,5 +48,10 @@ namespace Abiturients_App
             Menu f2 = new Menu();
             f2.Show();
         }
+
+        private void Speciality_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
