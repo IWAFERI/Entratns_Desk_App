@@ -16,19 +16,22 @@ namespace Abiturients_App
         public Form1()
         {
             InitializeComponent();
-            this.MaximumSize = new System.Drawing.Size(300, 400);
+            this.MaximumSize = new System.Drawing.Size(284, 284);
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
-            skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.DARK;
+            skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Green600, MaterialSkin.Primary.Green900, MaterialSkin.Primary.BlueGrey500, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
         }
 
         MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;Initial Catalog='collegeenrollmentdatabase';username=root;password=41Elaset");
         int i;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             
         }
+
+
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
@@ -36,7 +39,7 @@ namespace Abiturients_App
             connection.Open();
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT * FROM signup WHERE login='" + materialSingleLineTextField1.Text + "' AND pasword='" + materialSingleLineTextField2.Text + "'";
+            cmd.CommandText = "SELECT * FROM signup WHERE login='" + materialSingleLineTextField1.Text + "' AND password='" + materialSingleLineTextField2.Text + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -47,13 +50,19 @@ namespace Abiturients_App
             {
                 materialLabel1.Text = "Данные неверны";
             }
-            else {
+            else
+            {
                 this.Hide();
                 Menu f2 = new Menu();
                 f2.Show();
-                
+
             }
             connection.Close();
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

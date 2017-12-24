@@ -16,10 +16,10 @@ namespace Abiturients_App
         public Menu()
         {
             InitializeComponent();
-            this.MaximumSize = new System.Drawing.Size(300, 400);
+            this.MaximumSize = new System.Drawing.Size(500, 300);
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
-            skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.DARK;
+            skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Green600, MaterialSkin.Primary.Green900, MaterialSkin.Primary.BlueGrey500, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
         }
 
@@ -27,6 +27,13 @@ namespace Abiturients_App
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Speciality f3 = new Speciality();
+            f3.Show();
         }
     }
 }
