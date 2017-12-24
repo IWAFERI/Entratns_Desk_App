@@ -35,5 +35,23 @@ namespace Abiturients_App
             Speciality f3 = new Speciality();
             f3.Show();
         }
+
+        private void materialRaisedButton3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+            Form1 f1 = new Form1();
+            f1.Show();
+            this.Close();
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }
