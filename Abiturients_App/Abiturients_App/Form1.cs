@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Abiturients_App
 {
@@ -22,9 +23,37 @@ namespace Abiturients_App
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Green600, MaterialSkin.Primary.Green900, MaterialSkin.Primary.BlueGrey500, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
         }
 
+        MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;Initial Catalog='collegeenrollmentdatabase';username=root;password=41Elaset");
+        int i;
         private void Form1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            i = 0;
+            connection.Open();
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT * FROM signup WHERE login='" + materialSingleLineTextField1.Text + "' AND pasword='" + materialSingleLineTextField2.Text + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(dt);
+            i = Convert.ToInt32(dt.Rows.Count.ToString());
+
+            if (i == 0)
+            {
+                materialLabel1.Text = "Данные неверны";
+            }
+            else {
+                this.Hide();
+                Menu f2 = new Menu();
+                f2.Show();
+                
+            }
+            connection.Close();
         }
     }
 }
