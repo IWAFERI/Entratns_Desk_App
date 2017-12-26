@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+
 namespace Abiturients_App
 {
     public partial class Speciality : MaterialSkin.Controls.MaterialForm
@@ -27,7 +28,13 @@ namespace Abiturients_App
 
         private void Speciality_Load(object sender, EventArgs e)
         {
+            populateDVG();
+        }
+
+        public void populateDVG()
+        {
             string selectQuery = "SELECT * FROM speciality2";
+            
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
             adapter.Fill(table);
@@ -103,6 +110,27 @@ namespace Abiturients_App
         {
             string addQuery = "INSERT INTO speciality2(idSpeciality, nameOfSpeciality, budget, comerc) VALUES('"+materialSingleLineTextField1.Text+"','" + materialSingleLineTextField2.Text + "','" + materialSingleLineTextField3.Text + "','" + materialSingleLineTextField4.Text + "')";
             executMyQuery(addQuery);
+            populateDVG(); //моментальный ответ на запрос
+        }
+
+        private void materialRaisedButton3_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            //string UpdateQuery = "UPDATE speciality2 SET nameOfSpeciality='" + materialSingleLineTextField2.Text + "',budget='" + materialSingleLineTextField3.Text + "',comerc='" + materialSingleLineTextField4.Text + " WHERE idSpeciality =" + int.Parse(materialSingleLineTextField1.Text);
+            string UpdateQuery = "UPDATE speciality2 SET nameOfSpeciality='" + materialSingleLineTextField2.Text + "',budget='" + materialSingleLineTextField3.Text + "',comerc='" + materialSingleLineTextField4.Text + "' WHERE idSpeciality =" + int.Parse(materialSingleLineTextField1.Text);
+            executMyQuery(UpdateQuery);
+            populateDVG(); //моментальный ответ на запрос
+        }
+
+        private void materialRaisedButton3_Click_1(object sender, EventArgs e)
+        {
+            string dellQuery = "DELETE FROM speciality2 WHERE idSpeciality = " + materialSingleLineTextField1.Text;
+            executMyQuery(dellQuery);
+            populateDVG(); //моментальный ответ на запрос
         }
     }
 }
