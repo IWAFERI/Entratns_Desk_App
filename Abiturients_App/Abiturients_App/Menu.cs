@@ -57,8 +57,8 @@ namespace Abiturients_App
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Abitur fa = new Abitur();
-            fa.Show();
+            AbiturMenu fm = new AbiturMenu();
+            fm.Show();
         }
     }
 }

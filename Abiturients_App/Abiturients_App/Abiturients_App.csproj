@@ -49,11 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abitur.cs">
+    <Compile Include="AbiturAddMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abitur.Designer.cs">
-      <DependentUpon>Abitur.cs</DependentUpon>
+    <Compile Include="AbiturAddMenu.Designer.cs">
+      <DependentUpon>AbiturAddMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbiturMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbiturMenu.Designer.cs">
+      <DependentUpon>AbiturMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -75,8 +81,11 @@
     <Compile Include="Speciality.Designer.cs">
       <DependentUpon>Speciality.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Abitur.resx">
-      <DependentUpon>Abitur.cs</DependentUpon>
+    <EmbeddedResource Include="AbiturAddMenu.resx">
+      <DependentUpon>AbiturAddMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbiturMenu.resx">
+      <DependentUpon>AbiturMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
